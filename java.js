@@ -1,66 +1,80 @@
 
-const array = ['Rock', 'Paper', 'Scissors'];
-const windowPrompt = prompt('Rock, Paper, Scissors, Shoot!');
-
-function playerChoice() {
-    const choice = windowPrompt.toLowerCase();
-    console.log('You Chose:', choice)
-
-    return choice;
-}
-
-let playerSelection = playerChoice();
-
-/* --------------------------------------- */
-
-function getComputerChoice() {
-    const randomSelection = array[Math.floor(Math.random() * array.length)].toLowerCase();
-    console.log('Computer Chose:', randomSelection);
-
-    return randomSelection;
-}
-
-let computerSelection = getComputerChoice();
-
-/* --------------------------------------- */
-
-function playRound(playerSelection, computerSelection) {
-    const player = playerSelection;
-    const computer = computerSelection; 
-    const win = 'You Win This Round!';
-    const lose = 'You Lose This Round!';
-
-    if (player == 'scissors' && computer == 'rock') {
-        console.log(lose);
-    } else if (player == 'scissors' && computer == 'paper') {
-        console.log(win)
-    } else if (player == 'rock' && computer == 'paper') {
-        console.log(lose);
-    } else if (player == 'rock' && computer == 'scissors') {
-        console.log(win);
-    } else if (player == 'paper' && computer == 'scissors') {
-        console.log(lose);
-    } else if (player == 'paper' && computer == 'rock') {
-        console.log(win);
-    } else {
-        location.reload();
-    };
-}
-
-playRound(playerSelection, computerSelection);
-
-/* --------------------------------------- */
-
 function game() {
-    playRound();
-
     for (let i = 0; i < 5; i++) {
-        if (i = 3) {
-            console.log('You Won The Game!');
-        } else if (i = 4) {
-            console.log('You Lose The Game');
+        const array = ['Rock', 'Paper', 'Scissors'];
+            let userInput = prompt('Rock, Paper, Scissors, Shoot!');
+        
+        /* --------------------------------------- */
+        
+        function playerSelection() {
+            let choice = userInput.toLowerCase();
+        
+            return choice;
+        };
+        
+        /* --------------------------------------- */
+        
+        function getComputerChoice() {
+            let randomSelection = array[Math.floor(Math.random() * array.length)].toLowerCase();
+        
+            return randomSelection;
+        };
+        
+        /* --------------------------------------- */
+        
+        function playRound(param1, param2) {
+        
+            let player = param1;
+            const computer = param2; 
+        
+            const win = 'You Win This Round!';
+            const lose = 'You Lose This Round!';
+            const tie = 'A Tie! Both of you Chose the Same!';
+        
+            if (player == 'scissors' && computer == 'rock') {
+                console.log('You Chose:', player);
+                console.log('Computer Chose:', computer);
+                console.log(lose);
+                console.log('');
+            } else if (player == 'scissors' && computer == 'paper') {
+                console.log('You Chose:', player);
+                console.log('Computer Chose:', computer);
+                console.log(win);
+                console.log('');
+            } else if (player == 'rock' && computer == 'paper') {
+                console.log('You Chose:', player);
+                console.log('Computer Chose:', computer);
+                console.log(lose);
+                console.log('');
+            } else if (player == 'rock' && computer == 'scissors') {
+                console.log('You Chose:', player);
+                console.log('Computer Chose:', computer);
+                console.log(win);
+                console.log('');
+            } else if (player == 'paper' && computer == 'scissors') {
+                console.log('You Chose:', player);
+                console.log('Computer Chose:', computer);
+                console.log(lose);
+                console.log('');
+            } else if (player == 'paper' && computer == 'rock') {
+                console.log('You Chose:', player);
+                console.log('Computer Chose:', computer);
+                console.log(win);
+                console.log('');
+            } else if (player === computer) {
+                console.log('You Chose:', player);
+                console.log('Computer Chose:', computer);
+                console.log(tie);
+                console.log('');
+            } else {
+                location.reload();
+            };
         }
+
+        playRound(playerSelection(), getComputerChoice());
+
     }
 }
 
 game();
+
