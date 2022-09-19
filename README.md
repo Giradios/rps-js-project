@@ -8,4 +8,4 @@ It will be played using a randomly generated choice from the computer and a user
 The script is expected to follow the rules of Rock-Paper-Scissors.
 The script will loop until 5 Rounds and should keep a record of wins, losses, and ties.
 
-!!Finished @ 09/18/22!!
+! Finished @ 09/18/22 !
