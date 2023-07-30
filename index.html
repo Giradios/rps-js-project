@@ -4,9 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper,Scissors!</title>
+    <title>Rock, Paper, Scissors!</title>
+
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <header>
+        <div>!Rock-Paper-Scissors!</div>
+    </header>
+
+
+
+    <section class="button-section">
+        <div class="container">
+            <img src="images/img-rock.png">
+            <button id="rock">Rock</button>
+        </div>
+        <div class="container">
+            <img src="images/img-paper.png">
+            <button id="paper">Paper</button>
+        </div>
+        <div class="container">
+            <img src="images/img-scissors.png">
+            <button id="scissors">Scissors</button>       
+    </section>
+
+    <section class="start-section">
+        <button id="start">Start</button>
+    </section>
+
+    <hr>
+    
+    <section class="content-section">
+        <div class="content">
+            <div class="inner-content">
+                <p>COMPUTER:</p>
+            </div>
+            <div>
+                <span id="computerText"></span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="inner-content">
+                <p>SCORE:</p>
+            </div>
+            <div>
+                <span id="score"></span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="inner-content">
+                <p>ROUND #:</p>
+            </div>
+            <div>
+                <span id="round"></span>
+            </div>
+        </div>
+    </section>
+    
+
+    
+    <footer>
+        <div>By: Giradios - <a href="https://github.com/Giradios/rps-js-project" target="_blank">https://github.com/Giradios/rps-js-project</a></div>
+    </footer>
     <script src="java.js"></script>
 </body>
 </html>

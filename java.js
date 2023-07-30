@@ -1,80 +1,64 @@
-const array = ['Rock', 'Paper', 'Scissors'];
-let playerWin = 0;
-let computerWin = 0;
-let gameTie = 0;
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const start = document.querySelector('#start');
+const computerText = document.querySelector('#computerText');
+const score = document.querySelector('#score');
+const round = document.querySelector('#round');
 
-function game() {
-    for (let i = 0; i < 5; i++) { 
-        let userInput = prompt('Rock, Paper, Scissors, Shoot!');
-        
-        function playerSelection() {
-            let choice = userInput.toLowerCase();
-        
-            return choice;
-        };
-        
-        function getComputerChoice() {
-            let randomSelection = array[Math.floor(Math.random() * array.length)].toLowerCase();
-        
-            return randomSelection;
-        };
-        
-        function playRound(param1, param2) {
-        
-            let player = param1;
-            const computer = param2; 
-        
-            const win = 'You Win This Round!';
-            const lose = 'You Lose This Round!';
-            const tie = 'A Tie! Both of you Chose the Same!';
-        
-            if (player == 'scissors' && computer == 'rock' 
-            || player == 'rock' && computer == 'paper'
-            || player == 'paper' && computer == 'scissors') {
-                console.log('You Chose:', player);
-                console.log('Computer Chose:', computer);
-                console.log(lose);
-                console.log('');
-                ++computerWin;
-            } else if (player == 'scissors' && computer == 'paper'
-            || player == 'rock' && computer == 'scissors'
-            || player == 'paper' && computer == 'rock') {
-                console.log('You Chose:', player);
-                console.log('Computer Chose:', computer);
-                console.log(win);
-                console.log('');
-                ++playerWin;
-            } else if (player == computer) {
-                console.log('You Chose:', player);
-                console.log('Computer Chose:', computer);
-                console.log(tie);
-                console.log('');
-                ++gameTie;
-            } else {
-                location.reload();
-            };
+rock.addEventListener('click', playerChoice);
+paper.addEventListener('click', playerChoice);
+scissors.addEventListener('click', playerChoice);
+let player = '';
+let countScore = 0;
+let countRound = 0;
+const choice = ['Rock', 'Paper', 'Scissors'];
+
+function playerChoice() {
+    return player = this.id;
+};
+function playRound() {
+    let computer = computerChoice();
+    computerText.textContent = computer;
+
+    function roundPlus() {
+        countRound++;
+        round.textContent = countRound;
+    }
+    function counterPlus() {
+        countScore++;
+        score.textContent = countScore;
+    }
+    function counterMinus() {
+        countScore--;
+        score.textContent = countScore;
+    }
+    function computerChoice() {
+        return choice[Math.floor(Math.random() * choice.length)];
+    };    
+
+    if ((player === 'rock' && computer === 'Scissors') ||
+        (player === 'paper' && computer === 'Rock') ||
+        (player === 'scissors' && computer === 'Paper')) {
+            counterPlus();
+            roundPlus();
+    } else if (
+        (player === 'rock' && computer === 'Paper') ||
+        (player === 'paper' && computer === 'Scissors') ||
+        (player === 'scissors' && computer === 'Rock')) {
+            counterMinus();
+            roundPlus();
+        } else {
+            roundPlus();
         };
 
-        playRound(playerSelection(), getComputerChoice());
-    };
-
-    if (playerWin == 3) {
-        alert('You Win! Play again?');
-        location.reload();
-    } else if (computerWin == 3) {
-        alert('You Lost! Play again?');
-        location.reload();
-    } else if (playerWin == 2 && computerWin == 2 && gameTie == 1 
-        || playerWin == 1 && computerWin == 2 && gameTie == 2 
-        || playerWin == 2 && computerWin == 1 && gameTie == 2
-        || gameTie == 3, 4, 5) {
-        alert('You Both Lost! Wanna try again?')
-        location.reload();
-    } else {
-        alert('An Error Occured!')
-        location.reload();
-    };
+    if (countScore === 5) { 
+        alert('You Won in ' + round.textContent + ' round\'s! Wanna Play again?');
+        window.location.reload();
+    } else if (countScore === -5) {
+        alert('You Lost The Game in ' + round.textContent + ' round\'s!! Wanna Play again?')
+        window.location.reload();
+    } ;
 };
 
-game();
-
+start.addEventListener('click', playRound);
