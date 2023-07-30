@@ -18,3 +18,5 @@ The script is expected to display the use of DOM elements and the winning condit
 -Giradios
 
 ! Finished @ 07/25/23 !
+
+Live Preview: https://htmlpreview.github.io/?https://github.com/Giradios/rps-js-project/blob/main/index.html
